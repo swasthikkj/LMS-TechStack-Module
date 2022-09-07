@@ -30,7 +30,7 @@ public class TechStackService implements ITechStackService {
 		//		Long techId = tokenUtil.decodeToken(token);
 		//		Optional<TechStackModel> isTokenPresent = techRepository.findById(techId);
 		//		if(isTokenPresent.isPresent()) {
-		boolean isUserPresent = restTemplate.getForObject("http://localhost:8074/hiringcandidatemodule/validateuser/" + token, Boolean.class);
+		boolean isUserPresent = restTemplate.getForObject("http://LMS-AdminModule:8069/adminmodule/validateuser/" + token, Boolean.class);
 		if (isUserPresent) {
 			List<TechStackModel> list = new ArrayList<>();
 			//			adminId.stream().forEach(id -> {
@@ -54,7 +54,7 @@ public class TechStackService implements ITechStackService {
 		//		Long techId = tokenUtil.decodeToken(token);
 		//		Optional<TechStackModel> isTokenPresent = techRepository.findById(techId);
 		//		if(isTokenPresent.isPresent()) {
-		boolean isUserPresent = restTemplate.getForObject("http://localhost:8074/hiringcandidatemodule/validateuser/" + token, Boolean.class);
+		boolean isUserPresent = restTemplate.getForObject("http://LMS-AdminModule:8069/adminmodule/validateuser/" + token, Boolean.class);
 		if (isUserPresent) {
 			Optional<TechStackModel> isTechPresent = techRepository.findById(id);
 			if(isTechPresent.isPresent()) {
@@ -71,7 +71,7 @@ public class TechStackService implements ITechStackService {
 
 	@Override
 	public Optional<TechStackModel> getTechById(Long id, String token) {
-		boolean isUserPresent = restTemplate.getForObject("http://localhost:8074/hiringcandidatemodule/validateuser/" + token, Boolean.class);
+		boolean isUserPresent = restTemplate.getForObject("http://LMS-AdminModule:8069/adminmodule/validateuser/" + token, Boolean.class);
 		if (isUserPresent) {
 			return techRepository.findById(id);
 		}
@@ -81,7 +81,7 @@ public class TechStackService implements ITechStackService {
 	@Override
 	public List<TechStackModel> getAllTechStacks(String token) {
 		//		Long techId = tokenUtil.decodeToken(token);
-		boolean isUserPresent = restTemplate.getForObject("http://localhost:8074/hiringcandidatemodule/validateuser/" + token, Boolean.class);
+		boolean isUserPresent = restTemplate.getForObject("http://LMS-AdminModule:8069/adminmodule/validateuser/" + token, Boolean.class);
 		if (isUserPresent) {
 			List<TechStackModel> getAllTechStacks = techRepository.findAll();
 			if(getAllTechStacks.size()>0) {
@@ -96,7 +96,7 @@ public class TechStackService implements ITechStackService {
 	@Override
 	public TechStackModel deleteTechStack(Long id, String token) {
 		//		Long techId = tokenUtil.decodeToken(token);
-		boolean isUserPresent = restTemplate.getForObject("http://localhost:8073/techstackmodule/validateuser/" + token, Boolean.class);
+		boolean isUserPresent = restTemplate.getForObject("http://LMS-AdminModule:8069/adminmodule/validateuser/" + token, Boolean.class);
 		if (isUserPresent) {
 			Optional<TechStackModel> isTechPresent = techRepository.findById(id);
 			if(isTechPresent.isPresent()) {
